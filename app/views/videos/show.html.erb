@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Youtube ref:</b>
+  <%= @video.youtube_ref %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @video.product_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

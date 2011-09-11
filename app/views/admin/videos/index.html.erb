@@ -1,0 +1,43 @@
+<%= render :partial => 'admin/shared/product_sub_menu' %>
+
+<%= render :partial => 'admin/shared/product_tabs', :locals => {:current => "Videos"} %>
+
+<table class="index sortable">
+  <tr>
+    <th><%= t("youtube_ref") %></th>
+  </tr>
+
+  <% @product.videos.each do |video| %>
+    <tr id="<%= dom_id(video) %>">
+      <td>
+        <span class="handle"></span>
+        	<%= h video.youtube_ref %>
+      </td>
+      <td class="actions">
+        <%= link_to_with_icon('edit', t("edit"), edit_admin_product_video_url(@product, video), :class => 'edit') %>
+        &nbsp;
+        <%= link_to_delete video, {:url => admin_product_video_url(@product, video) }%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div id="video"></div>
+<br/>
+<p>
+    <%= link_to icon('add') + ' ' + t("new_video"), new_admin_product_video_url(@product), :id => "new_video_link" %>
+</p>
+
+<% content_for :head do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+
+      jQuery('#new_video_link').click(function (event) {
+        event.preventDefault();
+        jQuery(this).hide();
+        jQuery.ajax({type: 'GET', url: this.href, data: ({authenticity_token: AUTH_TOKEN}), success: function(r){ jQuery('#video').html(r);} });
+      });
+
+    });
+  </script>
+<% end %>
