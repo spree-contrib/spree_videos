@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class VideosController < Spree::BaseController
   def index
     @videos = Video.all
 
