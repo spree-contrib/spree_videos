@@ -1,15 +1,30 @@
+<%= link_to 'Back', videos_path %>
+
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@video.thumbnails.first.url) %>
+
 <p>
-  <b>Youtube ref:</b>
-  <%= @video.youtube_ref %>
+  <b>Title:</b>
+  <%= @video.title %>
 </p>
 
 <p>
-  <b>Product:</b>
-  <%= @video.product_id %>
+  <b>User:</b>
+  <%= @video.author.name %>
 </p>
 
+<p>
+  <b>Published:</b>
+  <%= @video.published_at %>
+</p>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<p>
+  <b>Description:</b>
+  <%= @video.description %>
+</p>
+
+<p>
+	<%= raw @video.embed_html5({:class => 'video-player', :id => 'my-video', :width => '425', :height => '350', :frameborder => '1'}) %>
+</p>
+

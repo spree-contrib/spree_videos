@@ -17,8 +17,10 @@ class VideosController < Spree::BaseController
   end
 
   def show
-    @video = Video.find(params[:id])
-
+    video = Video.find(params[:id])
+    client = YouTubeIt::Client.new
+    client = YouTubeIt::Client.new(:dev_key => YouTubeITConfig.dev_key)
+    @video = client.video_by(video.youtube_ref)
     respond_to do |format|
       format.html # show.html.erb
     end

@@ -1,5 +1,6 @@
 require 'spree_core'
 require 'spree_videos_hooks'
+require 'youtube_it'
 
 module SpreeVideos
   class Engine < Rails::Engine
