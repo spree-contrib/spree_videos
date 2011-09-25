@@ -1,6 +1,6 @@
 class VideosController < Spree::BaseController
   def index
-    @videos = Video.all
+    @videos = Video.all(:joins => :product, :conditions => 'products.deleted_at is NULL')
 
     respond_to do |format|
       format.html # index.html.erb
