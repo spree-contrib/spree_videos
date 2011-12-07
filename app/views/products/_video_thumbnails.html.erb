@@ -1,0 +1,10 @@
+<%
+if product.videos.length > 1
+	for video in product.videos
+		videoReference = video_reference(video)
+%>
+	<div><%=image_tag(videoReference.thumbnails.first.url, :width => 75)%></div>
+<%
+	end
+end 
+%>
