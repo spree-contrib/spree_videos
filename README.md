@@ -1,13 +1,18 @@
 SpreeVideos
 ===========
 
-Introduction goes here.
+Display video(s) on your product page.
 
+* Pulls thumbnails from youtube
+* Clickable thumbnails to easily switch between videos
 
 Example
 =======
+In `products/show`:
 
-Example goes here.
+	<%= render 'video', :product => @product %>
 
-
-Copyright (c) 2011 [name of extension creator], released under the New BSD License
+Contributors
+=======
+* Mark Linn, @markalinn
+* Michael Bianco, @iloveitaly
