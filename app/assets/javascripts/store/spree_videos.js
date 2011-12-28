@@ -1,0 +1,57 @@
+//= require_tree .
+
+// excuse me, MooTools user learning jQuery conventions :)
+
+var VideoManager = Class.extend({
+	options: {
+		width: 600,
+		youTubeMatch: /^.*((youtu.be\/)|(v\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/,
+		baseFilePath: '',
+		playerElementID: 'player_holder',
+		originDomain: '',
+	},
+	
+	init: function(holder, options) {
+		this.playerHolder = $(holder);
+		
+		// check if player is given by default, pull options off of it
+		var iframe = $('iframe', this.playerHolder).get(0);
+		if(!!iframe) {
+			this.options.width = $(iframe).width();
+		}
+		
+		// options override extracted options
+		this.options = $.extend(this.options, options || {});
+	},
+	
+	switchVideo: function(youtubeLink) {
+        var size = this.calculateDimensions(true);		
+        var matches = this.options.youTubeMatch.exec(youtubeLink);
+		var youtubeID = matches ? matches[matches.length - 1] : youtubeLink;
+        var youtubeURL = "http://www.youtube.com/embed/" + youtubeID + "?rel=0" + "&origin=" + this.options.originDomain + "&enablejsapi=1&theme=light";
+		
+		this.playerHolder.html('<iframe id="youtube_player" type="text/html" width="' + size.width + '" height="' + size.height + '" src="' + youtubeURL + '" frameborder="0"></iframe>');
+	},
+	
+	calculateDimensions: function(isYouTube) {
+	    // automatically size player based on HD 16:9 format
+		// can define either width / height and this will calculate the rest
+		
+		var w = this.options.width == undefined ? 0 : this.options.width,
+		    h = this.options.height == undefined ? 0 : this.options.width;
+			
+		// we subtract 30 from the height calculation because of the youtube menu
+		if(!w) w = (h - (isYouTube ? 30 : 0)) * 16/9;
+		if(!h) h = Math.round(w * (9/16) + (isYouTube ? 30 : 0));
+		
+        return {width:w, height:h};
+	}
+});
+
+$(document).ready(function() {
+	var vm = new VideoManager("#video-player");
+	
+	$('#video-thumbnails a').click(function(evn) {
+		vm.switchVideo($(this).data('video-id'));
+	})
+});

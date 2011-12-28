@@ -3,3 +3,8 @@ en:
   videos: Videos
   new_video: New Video
   youtube_ref: YouTube ID
+  
+  helpers:
+    label:
+      video:
+        youtube_ref: YouTube ID
