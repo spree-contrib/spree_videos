@@ -1,9 +1,9 @@
-Rails.application.routes.draw do
-  # Add your extension routes here
+Spree::Core::Engine.routes.append do
   resources :videos
   resources :products do
     match 'videos' => 'videos#product_index'
   end
+  
   namespace :admin do
     resources :products do
       resources :videos do

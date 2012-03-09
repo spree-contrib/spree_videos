@@ -1,4 +1,4 @@
-module SpreeWishlist
+module SpreeVideos
   module Generators
     class InstallGenerator < Rails::Generators::Base
 

@@ -7,4 +7,4 @@ en:
   helpers:
     label:
       video:
-        youtube_ref: YouTube ID
+        youtube_ref: YouTube Link or Reference
