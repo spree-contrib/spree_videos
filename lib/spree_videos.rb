@@ -7,6 +7,17 @@ module SpreeVideos
     
     config.autoload_paths += %W(#{config.root}/lib)
 
+    config.html_options = {
+      :class => 'video-player',
+      :id => 'product-video',
+      :frameborder => '0'
+    }
+
+    config.youtube_url_params = {
+        :enablejsapi => "1",
+        :theme => "light"
+    }
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)

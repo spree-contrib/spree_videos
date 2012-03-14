@@ -1,11 +1,22 @@
-<% if product.videos.length > 0 %>
-	<%= raw video_reference(product.videos.first).embed_html5({
-		:class => 'video-player',
-		:id => 'product-video',
-		:frameborder => '0',
-		:url_params => {
-			:enablejsapi => "1",
-			:theme => "light"
-		}
-	}) %>
+<%
+if product.videos.length > 0 
+	html5_config = SpreeVideos::Engine.config.html_options.merge({
+		:url_params => SpreeVideos::Engine.config.youtube_url_params
+	})
+
+	# change dimensions if one of the dimensions was defined in the config
+	# assumes 16/9 aspect ratio
+	# TODO: determine aspect ration dynamically
+
+	if html5_config.has_key? :width
+		width = html5_config[:width].to_f
+		height = ((width + 30.0) * (9.0/16.0)).round
+		html5_config[:height] = height
+	elsif html5_config.has_key? "height"
+		height = html5_config[:height].to_f
+		width = ((height - 30.0) * (16.0/9.0)).to_f
+		html5_config[:width] = width
+	end
+%>
+	<%= raw video_reference(product.videos.first).embed_html5(html5_config) %>
 <% end %>
