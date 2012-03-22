@@ -2,7 +2,7 @@
 
 <%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => "Images"} %>
 
-<%= render "shared/error_messages", :target => @image %>
+<%= render "spree/shared/error_messages", :target => @image %>
 
 <%= form_for(:video, :url => admin_product_video_url(@product), :html => { :method => :put, :multipart => true }) do |f| %>
   <table class="basic-table">
