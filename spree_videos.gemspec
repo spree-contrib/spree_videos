@@ -1,14 +1,14 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_videos'
-  s.version     = '1.1.0'
+  s.version     = '1.1.1'
   s.summary     = 'Adds product videos to Spree commerce'
   s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'Mark Linn'
-  s.email             = 'marklinn@xwcsolutions.com'
-  s.homepage          = 'http://www.xwcsolutions.com'
+  s.author            = 'Michael Bianco'
+  s.email             = 'info@cliffsidedev.com'
+  s.homepage          = 'http://mabblog.com/'
   # s.rubyforge_project = 'actionmailer'
 
   s.files         = `git ls-files`.split("\n")
