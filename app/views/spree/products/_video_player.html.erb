@@ -1,7 +1,7 @@
 <%
 if product.videos.length > 0 
-	html5_config = SpreeVideos::Engine.config.html_options.merge({
-		:url_params => SpreeVideos::Engine.config.youtube_url_params
+	html5_config = Spree::Videos.configuration.html_options.merge({
+		:url_params => Spree::Videos.configuration.youtube_url_params
 	})
 
 	# change dimensions if one of the dimensions was defined in the config

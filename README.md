@@ -17,14 +17,14 @@ Configuration
 ========
 You can specify configuration options that get passed through to the JS dynamic youtube video switcher & the html5 embed.
 
-	config.after_initialize do
-      SpreeVideos::Engine.config.html_options.merge!({
+	Spree::Videos.configure do |config|
+	  config.html_options = {
         :width => 400
-      })
+      }
 
-      SpreeVideos::Engine.config.youtube_url_params.merge!({
+      config.youtube_url_params = {
       	:enablejsapi => "1"
-      })
+      }
     end
 
 Contributors

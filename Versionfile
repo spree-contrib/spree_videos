@@ -1,2 +1,3 @@
 "0.7.x" => { :ref => "b2f9b9e9990a9af3f8cfa69a34baea8dd6aa53f0" }
-"1.0.x" => { :branch => "master" }
+"1.0.x" => { :ref => '8f5a21eb9f2aa933f4349bd9fecd5b84561ba5fc' }
+"1.1.x" => { :branch => "master" }
