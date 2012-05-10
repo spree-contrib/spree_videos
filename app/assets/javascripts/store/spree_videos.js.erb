@@ -9,7 +9,7 @@ var VideoManager = Class.extend({
 		baseFilePath: '',
 		playerElementID: 'player_holder',
 		originDomain: '',
-		youtube_options: "<%= Rack::Utils::build_query(SpreeVideos::Engine.config.youtube_url_params) %>"
+		youtube_options: "<%= Rack::Utils::build_query(Spree::Videos::configuration.youtube_url_params) %>"
 	},
 	
 	init: function(holder, options) {
