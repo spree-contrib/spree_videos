@@ -14,7 +14,9 @@ In `products/show`:
 	<%= render 'video', :product => @product %>
 
 Configuration
-========
+=============
+Run `rails g spree_videos:install`. Take a look at `config/initializers/spree_videos.rb`  
+
 You can specify configuration options that get passed through to the JS dynamic youtube video switcher & the html5 embed.
 
 	Spree::Videos.configure do |config|
