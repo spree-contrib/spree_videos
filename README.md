@@ -29,6 +29,8 @@ You can specify configuration options that get passed through to the JS dynamic 
       }
     end
 
+Note that as of 05/11/2012 you might have to reference a newer version of `youtube_it` in your Gemfile to get some of the newer features.
+
 Contributors
 =======
 * Mark Linn, @markalinn
