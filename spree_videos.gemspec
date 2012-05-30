@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_videos'
-  s.version     = '1.2.2'
+  s.version     = '1.2.3'
   s.summary     = 'Adds youtube videos to Spree commerce products'
   s.description = 'Add multiuple youtube videos, and a thumbnail selector' + 
                   'for those products to a Spree commerce product'
