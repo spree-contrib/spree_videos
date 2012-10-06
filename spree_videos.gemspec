@@ -1,15 +1,15 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_videos'
-  s.version     = '1.2.4'
+  s.version     = '1.3.0'
   s.summary     = 'Adds youtube videos to Spree commerce products'
   s.description = 'Add multiuple youtube videos, and a thumbnail selector' + 
                   'for those products to a Spree commerce product'
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'Michael Bianco'
-  s.email             = 'info@cliffsidedev.com'
-  s.homepage          = 'http://mabblog.com/'
+  s.authors           = ['Mark Linn', 'Michael Bianco']
+  s.email             = ['marklinn@xwcsolutions.com', 'info@cliffsidedev.com']
+  s.homepage          = 'http://github.com/iloveitaly/Spree-Videos'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
