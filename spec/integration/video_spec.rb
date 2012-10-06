@@ -38,6 +38,5 @@ describe 'video display' do
     page.should have_css('#product-videos')
     page.should have_css('#video-player')
     page.should have_css('#video-thumbnails')
-
   end
 end

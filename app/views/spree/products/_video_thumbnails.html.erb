@@ -1,3 +1,6 @@
-<% product.videos.map { |v| video_reference(v) }.each do |video| %>
-<%= link_to image_tag(video.thumbnails.first.url, :width => 75), 'Javascript:void(0);', :title => video.title, "data-video-id" => video.unique_id %>
-<% end if product.videos.length > 1 %>
+<% width ||= 75 %>
+<%= content_tag(:div, id: 'video-thumbnails') do %>
+<% videos.map(&:youtube_data).each do |video| %>
+	<%= link_to image_tag(video.thumbnails.first.url, :width => width), 'Javascript:void(0);', :title => video.title, "data-video-id" => video.unique_id %>
+<% end %>
+<% end if videos.size > 1  %>

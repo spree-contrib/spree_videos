@@ -1,8 +1,6 @@
+<% if product.videos.present? %>
 <div id="product-videos">
-	<div id="video-player">
-		<%= render 'video_player', :product => product %>
-	</div>
-	<div id='video-thumbnails'>
-		<%= render 'video_thumbnails', :product => product%>
-	</div>
+	<%= render 'video_player', :video => product.videos.first %>
+	<%= render 'video_thumbnails', :videos => product.videos %>
 </div>
+<% end %>

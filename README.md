@@ -6,6 +6,7 @@ Display YouTube video(s) on your product page.
 * Thumbnails from YouTube
 * Clickable thumbnails to easily switch between videos
 * Easily add/remove/edit videos through the spree admin
+* No markup will be added to your products if a video is not attached
 * Versions available for Spree 0.7 & 1.x
 
 Example
@@ -30,9 +31,15 @@ Installation
 	
 Configuration
 =============
+#### JS + HTML YouTube Parameters
 
 You can specify configuration options that get passed through to the JS dynamic youtube video switcher & the html5 embed. Take a look at `config/initializers/spree_videos.rb` for example configuration.
 
+#### Deface Override
+
+By default spree_videos inserts the videos into `#product_properties` in `products/show`. Disable the override to remove this behavior.
+
+#### CSS
 You can easily customize the display of the thumbnails / player:
 	
 	// stylesheets/store/videos.css.less
