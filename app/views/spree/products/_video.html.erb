@@ -1,6 +1,8 @@
+<% cache ['product-videos' product] do %>
 <% if product.videos.present? %>
 <div id="product-videos">
 	<%= render 'video_player', :video => product.videos.first %>
 	<%= render 'video_thumbnails', :videos => product.videos %>
 </div>
+<% end %>
 <% end %>
