@@ -7,6 +7,7 @@ group :test do
     gem 'rb-fsevent'
     gem 'growl'
   end
+  gem 'coffee-rails'
 end
 
 gem 'spree', '~> 1.2'

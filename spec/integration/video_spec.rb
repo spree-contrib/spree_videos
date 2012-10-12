@@ -7,7 +7,7 @@ describe 'video display' do
 
   let(:product) { @product }
 
-  it "should display no video player when no videos exist", :js => true do
+  it "should display no video player when no videos exist" do
     visit spree.product_path(product)
     page.should_not have_css('#product-videos')
   end
