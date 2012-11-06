@@ -1,8 +1,11 @@
 <%= content_tag(:div, id: 'video-player') do %>
 <%
+youtube_url_params ||= {}
+html_options ||= {}
+
 html5_config = Spree::Videos.configuration.html_options.merge({
-	:url_params => Spree::Videos.configuration.youtube_url_params
-})
+	:url_params => Spree::Videos.configuration.youtube_url_params.merge(youtube_url_params)
+}).merge(html_options)
 
 # change dimensions if one of the dimensions was defined in the config
 # assumes 16/9 aspect ratio
