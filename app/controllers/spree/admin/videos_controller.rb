@@ -26,7 +26,7 @@ module Spree
       end
 
       def set_product
-        @video.product = @product
+        @video.watchable = @product
       end
     end
   end

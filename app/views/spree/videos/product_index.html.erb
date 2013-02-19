@@ -12,7 +12,7 @@
 <% @videos.each do |video| %>
   <tr>
     <td><%= video.youtube_ref %></td>
-    <td><%= video.product_id %></td>
+    <td><%= video.watchable %></td>
     <td><%= link_to 'Show', video %></td>
   </tr>
 <% end %>

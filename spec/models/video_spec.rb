@@ -23,6 +23,6 @@ describe Spree::Video do
   end
 
   it "should not allow two of same videos attached to a product" do
-    expect{ FactoryGirl.create :video, :product => video.product }.to raise_error(ActiveRecord::RecordInvalid)
+    expect{ FactoryGirl.create :video, :watchable => video.watchable }.to raise_error(ActiveRecord::RecordInvalid)
   end
 end
