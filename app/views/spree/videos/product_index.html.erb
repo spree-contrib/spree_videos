@@ -1,19 +1,5 @@
-<h1><%= h @product.name %> Videos</h1>
-
-<table>
-  <tr>
-    <th>Youtube ref</th>
-    <th>Product</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @videos.each do |video| %>
-  <tr>
-    <td><%= video.youtube_ref %></td>
-    <td><%= video.watchable %></td>
-    <td><%= link_to 'Show', video %></td>
-  </tr>
-<% end %>
-</table>
+<%= content_tag(:h1, t(:product_video_index, :name => @product.name)) %>
+<div id="product-videos-index">
+  <%= render 'spree/products/video_player', :video => @videos.first %>
+  <%= render 'spree/products/video_thumbnails', :videos => @videos %>
+</div>

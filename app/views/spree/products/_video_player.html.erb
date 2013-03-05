@@ -15,7 +15,7 @@ if html5_config.has_key? :width
 	width = html5_config[:width].to_f
 	height = ((width + 30.0) * (9.0/16.0)).round
 	html5_config[:height] = height
-elsif html5_config.has_key? "height"
+elsif html5_config.has_key? :height
 	height = html5_config[:height].to_f
 	width = ((height - 30.0) * (16.0/9.0)).to_f
 	html5_config[:width] = width

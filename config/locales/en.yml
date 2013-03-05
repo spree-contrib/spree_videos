@@ -3,6 +3,7 @@ en:
   videos: Videos
   new_video: New Video
   youtube_ref: YouTube ID
+  product_video_index: "%{name} Videos"
   
   helpers:
     label:
