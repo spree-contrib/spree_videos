@@ -4,22 +4,34 @@ youtube_url_params ||= {}
 html_options ||= {}
 
 html5_config = Spree::Videos.configuration.html_options.merge({
-	:url_params => Spree::Videos.configuration.youtube_url_params.merge(youtube_url_params)
+  :url_params => Spree::Videos.configuration.youtube_url_params.merge(youtube_url_params)
 }).merge(html_options)
 
 # change dimensions if one of the dimensions was defined in the config
 # assumes 16/9 aspect ratio
+
 # TODO: determine aspect ration dynamically
 
-if html5_config.has_key? :width
-	width = html5_config[:width].to_f
-	height = ((width + 30.0) * (9.0/16.0)).round
-	html5_config[:height] = height
-elsif html5_config.has_key? :height
-	height = html5_config[:height].to_f
-	width = ((height - 30.0) * (16.0/9.0)).to_f
-	html5_config[:width] = width
+# allow explicitly defining nil for height or width to eliminate the 
+# width + height tags from being defined on the video iframe
+
+# TODO the nil check doesn't actually work because of youtube_it
+
+if (html5_config.has_key? :width and html5_config[:width].nil?) or
+ (html5_config.has_key? :height and html5_config[:height].nil?)
+ html5_config[:height] = ""
+ html5_config[:width] = ""
+else
+  if html5_config.has_key? :width
+    width = html5_config[:width].to_f
+    height = ((width + 30.0) * (9.0/16.0)).round
+    html5_config[:height] = height
+  elsif html5_config.has_key? :height
+    height = html5_config[:height].to_f
+    width = ((height - 30.0) * (16.0/9.0)).to_f
+    html5_config[:width] = width
+  end
 end
 %>
-	<%== video.youtube_data.embed_html5(html5_config) %>
+  <%== video.youtube_data.embed_html5(html5_config) %>
 <% end if video.present? %>

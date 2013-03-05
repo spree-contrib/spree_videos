@@ -13,6 +13,9 @@ class VideoManager
 		# check if player is given by default, pull options off of it
 		if !!(iframe = $('iframe', @player_holder).get(0))
 			options.width = $(iframe).width()
+
+			# TODO should pull youtube_options from the player if they exist
+			# TODO should have option for resizing the player while keeping the aspect ratio
 		
 		@options = $.extend(@options, options)
 	
@@ -39,7 +42,9 @@ class VideoManager
 		{ width:w, height:h }
 
 $ ->
+	# TODO should create multiple VideoManagers based on class name instead
 	vm = new VideoManager("#video-player")
 	
+	# TODO should not be based on a single ID
 	$('#video-thumbnails a').click (evn) ->
 		vm.switchVideo($(this).data('video-id'))
