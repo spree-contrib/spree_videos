@@ -7,6 +7,7 @@ Display YouTube video(s) on your product page.
 * Clickable thumbnails to easily switch between videos
 * Easily add/remove/edit videos through the spree admin
 * No markup will be added to your products if a video is not attached
+* Polymorphic `watchable` association on `Spree::Video` model – enables you to attach videos to any model in your app
 * Versions available for Spree 0.7 & 1.x
 
 Example
