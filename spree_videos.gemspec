@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 1.1'
-  s.add_dependency 'youtube_it', '~> 2.3.2'
+  s.add_dependency 'youtube_it', '~> 2.4.0'
 
   # test suite
   s.add_development_dependency 'capybara', '~> 1.1'
