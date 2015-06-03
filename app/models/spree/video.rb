@@ -7,7 +7,7 @@ module Spree
     validates_uniqueness_of :youtube_ref, :scope => [:watchable_id, :watchable_type]
 
     def youtube_data
-      youtube_data = YouTubeIt::Client.new.video_by(youtube_ref)
+      youtube_data = YouTubeIt::Model::Video.new({})
       youtube_data.instance_variable_set(:@unique_id, youtube_ref)
       youtube_data
     end
